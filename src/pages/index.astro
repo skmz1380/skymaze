@@ -1,504 +1,1308 @@
+```astro
 ---
 const projects = [
   {
     number: "01",
-    title: "Engine Control",
-    description:
-      "Control systems, modeling, identification and intelligent control for propulsion systems.",
-    tags: ["Control", "MATLAB", "Embedded"],
+    type: "ROBOTICS · AI",
+    title: "RL-Augmented MPC",
+    subtitle: "Adaptive control for a lower-limb rehabilitation exoskeleton.",
+    tags: ["DDPG", "NMPC", "Reinforcement Learning", "Robotics"],
   },
   {
     number: "02",
-    title: "Lower Limb Exoskeleton",
-    description:
-      "RL-augmented NMPC for adaptive rehabilitation and human-robot interaction.",
-    tags: ["RL", "NMPC", "Robotics"],
+    type: "AEROSPACE",
+    title: "Kosar 1.5 ADCS",
+    subtitle: "Attitude determination and control for sun-pointing and inertial-pointing missions.",
+    tags: ["ADCS", "Simulink", "SIL", "Reaction Wheels"],
   },
   {
     number: "03",
-    title: "Satellite SIL",
-    description:
-      "Software-in-the-loop modeling, attitude control and sun-pointing systems.",
-    tags: ["Aerospace", "SIL", "Control"],
+    type: "CONTROL · SOFTWARE",
+    title: "Aircraft ECU Reverse Engineering",
+    subtitle: "System-level reconstruction of control behavior and embedded numerical logic.",
+    tags: ["Embedded Control", "System Identification", "Fixed-Point"],
   },
 ];
 ---
 
-<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="SKy MaZe — A Man Who Never Gives Up." />
-    <title>SKy MaZe — A Man Who Never Gives Up</title>
-  </head>
-
-  <body>
-    <header class="navbar">
-      <a href="/" class="logo">SK<span>y</span> MaZe</a>
-
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero-content">
-          <p class="eyebrow">ENGINEER · RESEARCHER · BUILDER</p>
-
-          <h1>
-            SKy MaZe
-          </h1>
-
-          <h2>A Man Who Never Gives Up.</h2>
-
-          <p class="intro">
-            Exploring control, aerospace, embedded systems and intelligent
-            machines — one problem at a time.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#projects" class="button primary">
-              Explore My Work
-            </a>
-
-            <a href="#about" class="button secondary">
-              About Me
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-mark">
-          <div class="circle"></div>
-          <span>SKMZ</span>
-        </div>
-      </section>
-
-      <section id="about" class="section about">
-        <div class="section-label">01 / ABOUT</div>
-
-        <div class="section-content">
-          <h2>Engineering is not just about solving problems.</h2>
-
-          <p>
-            It is about refusing to stop when the problem becomes difficult.
-            My work lives at the intersection of control systems, mechanical
-            engineering, aerospace and embedded systems.
-          </p>
-
-          <p>
-            I enjoy understanding complex systems from the inside, building
-            models, writing code, testing ideas and turning theory into
-            something that actually works.
-          </p>
-        </div>
-      </section>
-
-      <section id="projects" class="section projects">
-        <div class="section-label">02 / SELECTED WORK</div>
-
-        <div class="project-list">
-          {projects.map((project) => (
-            <article class="project">
-              <span class="project-number">{project.number}</span>
-
-              <div class="project-main">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-
-                <div class="tags">
-                  {project.tags.map((tag) => (
-                    <span>{tag}</span>
-                  ))}
-                </div>
-              </div>
-
-              <span class="arrow">↗</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="research" class="section research">
-        <div class="section-label">03 / RESEARCH</div>
-
-        <div class="research-grid">
-          <div>
-            <h2>Ideas become systems.</h2>
-          </div>
-
-          <div>
-            <p>
-              Research, technical notes, experiments and things I learned
-              while trying to make complicated systems behave.
-            </p>
-
-            <a href="#" class="text-link">Explore Research →</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact">
-        <div class="section-label">04 / CONTACT</div>
-
-        <div>
-          <h2>Let's build something.</h2>
-          <p>
-            For engineering, research or technical collaboration.
-          </p>
-
-          <a href="mailto:hello@skymaze.ir" class="email">
-            hello@skymaze.ir
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>SKy MaZe</div>
-      <div>A Man Who Never Gives Up.</div>
-      <div>© 2026</div>
-    </footer>
-  </body>
-</html>
-
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
-  :global(*) {
-    box-sizing: border-box;
-  }
-
-  :global(html) {
-    scroll-behavior: smooth;
-  }
-
-  :global(body) {
-    margin: 0;
-    background: #080b0f;
-    color: #e8edf2;
-    font-family: "Inter", sans-serif;
-    line-height: 1.6;
-  }
-
-  :global(a) {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .navbar {
-    width: min(1200px, calc(100% - 48px));
-    height: 90px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #1b222b;
-  }
-
-  .logo {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: -0.04em;
-  }
-
-  .logo span {
-    color: #7dd3fc;
-  }
-
-  nav {
-    display: flex;
-    gap: 32px;
-  }
-
-  nav a {
-    color: #8c98a5;
-    font-size: 0.85rem;
-    transition: color 0.2s ease;
-  }
-
-  nav a:hover {
-    color: #fff;
-  }
-
-  .hero {
-    width: min(1200px, calc(100% - 48px));
-    min-height: calc(100vh - 90px);
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
-    position: relative;
-  }
-
-  .hero-content {
-    max-width: 760px;
-    padding: 100px 0;
-  }
-
-  .eyebrow,
-  .section-label {
-    color: #667381;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-  }
-
-  .hero h1 {
-    margin: 22px 0 0;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(4rem, 10vw, 8.5rem);
-    line-height: 0.9;
-    letter-spacing: -0.075em;
-  }
-
-  .hero h2 {
-    margin: 32px 0 0;
-    color: #cbd5df;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.4rem, 3vw, 2.4rem);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-  }
-
-  .intro {
-    max-width: 600px;
-    margin: 28px 0 0;
-    color: #8995a3;
-    font-size: 1.05rem;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 14px;
-    margin-top: 42px;
-  }
-
-  .button {
-    padding: 13px 21px;
-    border: 1px solid #29323d;
-    font-size: 0.82rem;
-    font-weight: 600;
-    transition: 0.2s ease;
-  }
-
-  .button:hover {
-    transform: translateY(-2px);
-    border-color: #536273;
-  }
-
-  .primary {
-    background: #e8edf2;
-    color: #080b0f;
-  }
-
-  .secondary {
-    color: #cbd5df;
-  }
-
-  .hero-mark {
-    width: 220px;
-    height: 220px;
-    position: relative;
-    display: grid;
-    place-items: center;
-    border: 1px solid #1d2630;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .circle {
-    position: absolute;
-    width: 130px;
-    height: 130px;
-    border: 1px solid #33404d;
-    border-radius: 50%;
-  }
-
-  .hero-mark span {
-    z-index: 1;
-    color: #657280;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-  }
-
-  .section {
-    width: min(1200px, calc(100% - 48px));
-    margin: auto;
-    padding: 130px 0;
-    border-top: 1px solid #1b222b;
-  }
-
-  .section-content {
-    max-width: 750px;
-    margin-left: auto;
-  }
-
-  .section h2 {
-    margin: 0 0 28px;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.06em;
-  }
-
-  .section p {
-    color: #8c98a5;
-    font-size: 1rem;
-  }
-
-  .section-content p {
-    max-width: 680px;
-  }
-
-  .project-list {
-    margin-top: 70px;
-  }
-
-  .project {
-    display: grid;
-    grid-template-columns: 80px 1fr 40px;
-    gap: 30px;
-    padding: 36px 0;
-    border-top: 1px solid #1b222b;
-    transition: padding 0.25s ease;
-  }
-
-  .project:last-child {
-    border-bottom: 1px solid #1b222b;
-  }
-
-  .project:hover {
-    padding-left: 15px;
-  }
-
-  .project-number {
-    color: #55616e;
-    font-size: 0.8rem;
-  }
-
-  .project h3 {
-    margin: 0;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.7rem;
-  }
-
-  .project p {
-    max-width: 650px;
-    margin: 10px 0 18px;
-  }
-
-  .tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .tags span {
-    padding: 5px 9px;
-    border: 1px solid #222b34;
-    color: #687583;
-    font-size: 0.68rem;
-  }
-
-  .arrow {
-    color: #596674;
-    font-size: 1.3rem;
-  }
-
-  .research-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    margin-top: 60px;
-  }
-
-  .text-link {
-    display: inline-block;
-    margin-top: 25px;
-    color: #c9d3dc;
-    border-bottom: 1px solid #485563;
-    padding-bottom: 4px;
-  }
-
-  .contact {
-    padding-bottom: 160px;
-  }
-
-  .contact > div:last-child {
-    margin-top: 60px;
-  }
-
-  .email {
-    display: inline-block;
-    margin-top: 20px;
-    color: #dce5ed;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    letter-spacing: -0.04em;
-    border-bottom: 1px solid #394550;
-  }
-
-  footer {
-    width: min(1200px, calc(100% - 48px));
-    margin: auto;
-    padding: 30px 0;
-    display: flex;
-    justify-content: space-between;
-    color: #4f5b67;
-    font-size: 0.7rem;
-    border-top: 1px solid #1b222b;
-  }
-
-  @media (max-width: 800px) {
-    .navbar {
-      height: 75px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="theme-color" content="#070a10" />
+  <title>SKy MaZe — Seyed Kazem Moosavi Zargar</title>
+  <meta
+    name="description"
+    content="Seyed Kazem Moosavi Zargar — Control Systems & Software Engineer working across intelligent control, aerospace and robotics."
+  />
+
+  <style>
+    :root {
+      --bg: #070a10;
+      --bg2: #0a0f18;
+      --card: #0d131e;
+      --line: #1a2332;
+      --text: #edf2fa;
+      --muted: #9ba7ba;
+      --dim: #626d80;
+      --accent: #4f8cff;
+      --accent2: #7ca9ff;
+      --glow: rgba(79, 140, 255, .18);
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* ---------- NAV ---------- */
 
     nav {
-      display: none;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 max(24px, calc((100vw - 1160px) / 2));
+      background: rgba(7, 10, 16, .78);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(16px);
     }
 
+    .logo {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* ---------- HERO ---------- */
+
     .hero {
-      min-height: auto;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 130px 0 90px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      right: -260px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: radial-gradient(circle, rgba(40,90,190,.20), transparent 68%);
+      pointer-events: none;
+    }
+
+    .maze {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .maze path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 1600;
+      stroke-dashoffset: 1600;
+      animation: drawMaze 3s cubic-bezier(.65,0,.35,1) .3s forwards;
+    }
+
+    .maze .faint {
+      stroke: #27334a;
+      opacity: .65;
+    }
+
+    .maze circle {
+      fill: var(--accent);
+      opacity: 0;
+      animation: node .45s ease forwards;
+    }
+
+    .maze circle:nth-of-type(1) { animation-delay: 1s; }
+    .maze circle:nth-of-type(2) { animation-delay: 1.7s; }
+    .maze circle:nth-of-type(3) { animation-delay: 2.3s; }
+    .maze circle:nth-of-type(4) { animation-delay: 2.8s; }
+
+    @keyframes drawMaze {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes node {
+      to { opacity: 1; }
     }
 
     .hero-content {
-      padding: 100px 0;
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
     }
 
-    .hero-mark {
-      display: none;
+    .eyebrow {
+      color: var(--accent2);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 850;
+      max-width: 800px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      margin-top: 28px;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    .hero-desc {
+      margin-top: 14px;
+      max-width: 630px;
+      color: var(--dim);
+      font-size: 15px;
+    }
+
+    .motto {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 30px;
+      padding: 11px 17px;
+      border: 1px solid rgba(79,140,255,.25);
+      border-radius: 8px;
+      background: rgba(79,140,255,.07);
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .motto::before {
+      content: "—";
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 800;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .button {
+      padding: 12px 20px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      font-size: 13.5px;
+      font-weight: 650;
+      transition: .2s ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79,140,255,.45);
+      box-shadow: 0 10px 28px -16px rgba(79,140,255,.7);
+    }
+
+    /* ---------- GENERAL ---------- */
+
+    section {
+      border-bottom: 1px solid var(--line);
     }
 
     .section {
-      padding: 90px 0;
+      padding: 110px 0;
     }
 
-    .section-content {
-      margin-top: 50px;
+    .section-heading {
+      margin-bottom: 54px;
     }
 
-    .research-grid {
-      grid-template-columns: 1fr;
+    .section-heading h2 {
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      margin-top: 15px;
+      color: var(--dim);
+      max-width: 600px;
+      font-size: 15px;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .facts {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .fact {
+      background: var(--card);
+      padding: 19px 21px;
+    }
+
+    .fact small {
+      display: block;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .fact strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      margin-left: 8px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 55px 34px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 18px var(--glow);
+    }
+
+    .date {
+      color: var(--accent2);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .timeline h3 {
+      margin-top: 7px;
+      font-size: 21px;
+      letter-spacing: -.02em;
+    }
+
+    .company {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 3px;
+    }
+
+    .timeline p {
+      color: var(--dim);
+      font-size: 14px;
+      margin-top: 12px;
+      max-width: 700px;
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .project {
+      position: relative;
+      padding: 32px 0 42px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 100px 1fr;
       gap: 30px;
     }
 
-    .project {
-      grid-template-columns: 45px 1fr 20px;
-      gap: 12px;
+    .project:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 13px;
+      padding-top: 5px;
+    }
+
+    .project-type {
+      color: var(--dim);
+      font-size: 10px;
+      letter-spacing: .14em;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      margin-top: 7px;
+      font-size: 28px;
+      letter-spacing: -.035em;
+    }
+
+    .project p {
+      color: var(--muted);
+      max-width: 700px;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--dim);
+      font-size: 11px;
+    }
+
+    /* ---------- CONTROL VISUAL ---------- */
+
+    .control-visual {
+      margin-top: 70px;
+      height: 130px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .control-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .wave {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wave path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: waveDraw 3.5s ease-in-out infinite;
+    }
+
+    @keyframes waveDraw {
+      0% { stroke-dashoffset: 900; }
+      45%, 75% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -900; }
+    }
+
+    /* ---------- EDUCATION ---------- */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .edu-card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: .25s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(79,140,255,.3);
+    }
+
+    .edu-card .year {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .edu-card h3 {
+      margin-top: 10px;
+      font-size: 21px;
+    }
+
+    .edu-card p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grade {
+      margin-top: 22px;
+      color: var(--dim);
+      font-size: 12px;
+    }
+
+    .grade strong {
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    /* ---------- SKILLS ---------- */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      max-width: 900px;
+    }
+
+    .skill {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255,255,255,.015);
+      transition: .2s;
+    }
+
+    .skill:hover {
+      color: var(--text);
+      border-color: rgba(79,140,255,.4);
+      background: var(--glow);
+    }
+
+    /* ---------- TELEGRAM ---------- */
+
+    .telegram {
+      padding: 90px 0;
+    }
+
+    .telegram-card {
+      position: relative;
+      overflow: hidden;
+      padding: 48px;
+      border-radius: 15px;
+      border: 1px solid rgba(79,140,255,.25);
+      background:
+        radial-gradient(circle at 90% 50%, rgba(79,140,255,.12), transparent 35%),
+        var(--card);
+    }
+
+    .telegram-card h2 {
+      font-size: 34px;
+      letter-spacing: -.035em;
+    }
+
+    .telegram-card p {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 570px;
+    }
+
+    .telegram-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--accent2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .45;
+    }
+
+    .orbit circle {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1;
+    }
+
+    .orbit .sat {
+      fill: var(--accent);
+      transform-origin: 135px 135px;
+      animation: orbit 18s linear infinite;
+    }
+
+    @keyframes orbit {
+      to { transform: rotate(360deg); }
+    }
+
+    /* =========================
+   Signature
+   ========================= */
+
+.signature-section{
+  padding:120px 0 90px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+
+.signature-wrap{
+  max-width:760px;
+  margin:0 auto;
+}
+
+.signature-label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.16em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-bottom:26px;
+}
+
+.signature-line{
+  width:64px;
+  height:1px;
+  background:var(--accent-line);
+  margin:0 auto 38px;
+}
+
+.signature-image{
+  width:min(420px, 78vw);
+  height:auto;
+  display:block;
+  margin:0 auto;
+
+  opacity:0;
+  transform:translateY(18px) scale(.97);
+
+  filter:invert(1) brightness(.92);
+
+  transition:
+    opacity 1.2s cubic-bezier(.16,1,.3,1),
+    transform 1.4s cubic-bezier(.16,1,.3,1);
+}
+
+.signature-section.is-visible .signature-image{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.signature-name{
+  margin-top:30px;
+  font-size:14px;
+  color:var(--text-dim);
+  letter-spacing:.04em;
+}
+
+.signature-motto{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--text-faint);
+  font-style:italic;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .signature-image{
+    opacity:1;
+    transform:none;
+  }
+}
+
+    /* ---------- CONTACT ---------- */
+
+    .contact {
+      text-align: center;
+      padding: 130px 0 100px;
+    }
+
+    .contact h2 {
+      font-size: clamp(42px, 6vw, 70px);
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+
+    .contact p {
+      margin: 20px auto 30px;
+      color: var(--muted);
+      max-width: 550px;
+    }
+
+    .contact-email {
+      color: var(--accent2);
+      font-size: 18px;
+      font-weight: 650;
     }
 
     footer {
-      flex-direction: column;
-      gap: 10px;
+      padding: 28px 0 35px;
+      color: var(--dim);
+      font-size: 11px;
+      text-align: center;
     }
+
+    /* ---------- REVEAL ---------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity .7s cubic-bezier(.16,1,.3,1),
+        transform .7s cubic-bezier(.16,1,.3,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .maze {
+        opacity: .2;
+        right: -230px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 45px 1fr;
+        gap: 15px;
+      }
+
+      .orbit {
+        opacity: .12;
+        right: -80px;
+      }
+
+      .telegram-card {
+        padding: 32px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<nav>
+  <a class="logo" href="/">SKy <span>MaZe.</span></a>
+
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-glow"></div>
+
+  <svg class="maze" viewBox="0 0 520 520">
+    <path class="faint"
+      d="M50 450 V340 H160 V240 H260 V130 H430 V70 H490" />
+
+    <path
+      d="
+      M50 450 V340 H160 V240 H260 V130 H430
+      M430 130 V70 H490
+      M260 240 H350 V190
+      M160 340 H220 V400 H330
+      " />
+
+    <circle cx="50" cy="450" r="5"/>
+    <circle cx="260" cy="240" r="5"/>
+    <circle cx="430" cy="130" r="5"/>
+    <circle cx="490" cy="70" r="5"/>
+  </svg>
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      SKy MaZe / CONTROL · SOFTWARE · AEROSPACE
+    </div>
+
+    <h1>
+      Seyed Kazem<br />
+      Moosavi <span>Zargar.</span>
+    </h1>
+
+    <p class="hero-title">
+      Control Systems & Software Engineer · M.Sc. Mechanical Engineering
+      · Reinforcement Learning & Aerospace Applications
+    </p>
+
+    <p class="hero-desc">
+      Building intelligent systems where mechanics, control, software and
+      learning meet.
+    </p>
+
+    <div class="motto">
+      A man who never gives up.
+    </div>
+
+    <div class="actions">
+      <!-- Replace these links -->
+      <a class="button primary" href="/CV.pdf" target="_blank">
+        Download CV
+      </a>
+
+      <a class="button" href="https://www.linkedin.com/in/kazemmoosavi/" target="_blank">
+        LinkedIn
+      </a>
+
+      <a class="button" href="https://github.com/skmz1380" target="_blank">
+        GitHub
+      </a>
+
+      <a class="button" href="mailto:me@skymaze.ir">
+        Contact
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">About</div>
+      <h2>Engineering the unknown.</h2>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-text reveal">
+        I am a <strong>Control Systems & Software Engineer</strong> with a
+        background in Mechanical Engineering and a focus on dynamics,
+        intelligent control and computational methods.
+
+        <br /><br />
+
+        My work sits at the intersection of
+        <strong>control theory, software, robotics, machine learning
+        and aerospace systems</strong>.
+
+        <br /><br />
+
+        From reinforcement-learning-assisted rehabilitation robots to
+        satellite attitude control and aircraft engine control systems,
+        I enjoy understanding complex systems and turning them into
+        something that can be modeled, controlled and built.
+      </div>
+
+      <div class="facts reveal">
+
+        <div class="fact">
+          <small>Current role</small>
+          <strong>Control Systems & Software Engineer</strong>
+        </div>
+
+        <div class="fact">
+          <small>Company</small>
+          <strong>MAPNA Group · AERO</strong>
+        </div>
+
+        <div class="fact">
+          <small>Education</small>
+          <strong>M.Sc. Mechanical Engineering · Sharif University</strong>
+        </div>
+
+        <div class="fact">
+          <small>Focus</small>
+          <strong>Control · AI · Aerospace · Robotics</strong>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section" id="experience">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">Experience</div>
+      <h2>Where I have been.</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="date">Feb 2026 — Present</div>
+        <h3>Control Systems & Software Engineer</h3>
+        <div class="company">MAPNA Group · AERO</div>
+        <p>
+          Control systems and software engineering in an aerospace
+          engineering environment.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">May 2025 — Jul 2025</div>
+        <h3>Attitude Determination & Control Systems Engineer</h3>
+        <div class="company">SpaceOMID</div>
+        <p>
+          Developed ADCS modes for the Kosar 1.5 satellite, performed
+          actuator testing and upgraded the SIL simulation environment.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">Oct 2024 — Oct 2025</div>
+        <h3>Laboratory Manager</h3>
+        <div class="company">Sharif University of Technology · Mechatronics Research Lab</div>
+        <p>
+          Managed laboratory activities and supported research and
+          experimental work in mechatronics and control.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="date">2023 — 2025</div>
+        <h3>Research & Teaching Assistant</h3>
+        <div class="company">Amirkabir University of Technology</div>
+        <p>
+          Research and teaching activities across dynamics, automatic
+          control and hydraulic & pneumatic systems.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Inside the maze.</h2>
+      <p>
+        A few systems I have designed, modeled, controlled or reconstructed.
+      </p>
+    </div>
+
+    {projects.map((project) => (
+      <article class="project reveal">
+
+        <div class="project-number">
+          {project.number}
+        </div>
+
+        <div>
+          <div class="project-type">
+            {project.type}
+          </div>
+
+          <h3>{project.title}</h3>
+
+          <p>
+            {project.subtitle}
+          </p>
+
+          <div class="chips">
+            {project.tags.map((tag) => (
+              <span class="chip">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+      </article>
+    ))}
+
+    <div class="control-visual reveal">
+      <div class="control-grid"></div>
+
+      <svg class="wave" viewBox="0 0 1000 130" preserveAspectRatio="none">
+        <path d="
+          M0 78
+          C45 78 55 50 95 50
+          C140 50 150 91 190 91
+          C230 91 240 42 285 42
+          C330 42 345 82 390 82
+          C435 82 450 30 500 30
+          C550 30 565 73 610 73
+          C655 73 670 45 715 45
+          C760 45 775 90 820 90
+          C865 90 885 56 930 56
+          C960 56 980 65 1000 65
+        "/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- EDUCATION -->
+
+<section class="section" id="education">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">Education</div>
+      <h2>Built on fundamentals.</h2>
+    </div>
+
+    <div class="education-grid">
+
+      <div class="edu-card reveal">
+        <div class="year">2023 — 2026</div>
+        <h3>M.Sc. Mechanical Engineering</h3>
+        <p>Sharif University of Technology</p>
+        <div class="grade">
+          GPA<br />
+          <strong>18.14 / 20</strong>
+        </div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="year">2019 — 2023</div>
+        <h3>B.Sc. Mechanical Engineering</h3>
+        <p>Amirkabir University of Technology</p>
+        <div class="grade">
+          GPA<br />
+          <strong>18.26 / 20</strong>
+          <br /><br />
+          Ranked 8th among 140 entry students
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="section" id="skills">
+  <div class="container">
+
+    <div class="section-heading reveal">
+      <div class="eyebrow">Toolkit</div>
+      <h2>Things I work with.</h2>
+    </div>
+
+    <div class="skills reveal">
+
+      <span class="skill">MATLAB</span>
+      <span class="skill">Simulink</span>
+      <span class="skill">Python</span>
+      <span class="skill">C#</span>
+      <span class="skill">C / Embedded</span>
+      <span class="skill">Git & GitHub</span>
+      <span class="skill">Control Systems</span>
+      <span class="skill">MPC / NMPC</span>
+      <span class="skill">Reinforcement Learning</span>
+      <span class="skill">Machine Learning</span>
+      <span class="skill">System Identification</span>
+      <span class="skill">ADCS</span>
+      <span class="skill">SIL Simulation</span>
+      <span class="skill">PLC</span>
+      <span class="skill">Dynamics</span>
+      <span class="skill">Robotics</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TELEGRAM -->
+
+<section class="telegram">
+  <div class="container">
+
+    <div class="telegram-card reveal">
+
+      <svg class="orbit" viewBox="0 0 270 270">
+        <circle cx="135" cy="135" r="105"/>
+        <circle cx="135" cy="135" r="72" transform="rotate(35 135 135)"/>
+        <circle class="sat" cx="240" cy="135" r="4"/>
+      </svg>
+
+      <div>
+        <div class="eyebrow">Follow the journey</div>
+
+        <h2>SKy aMaZe</h2>
+
+        <p>
+          Notes, ideas, experiments and things worth building —
+          from control systems and aerospace to software and beyond.
+        </p>
+
+        <!-- Replace this URL -->
+        <a
+          class="telegram-link"
+          href="[TELEGRAM_URL]"
+          target="_blank"
+        >
+          Enter the Maze →
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="eyebrow">Contact</div>
+
+    <h2>Let's build<br /><span style="color:var(--accent)">something remarkable.</span></h2>
+
+    <p>
+      Whether it is a control problem, an aerospace system,
+      a software project or simply an interesting idea —
+      I am always interested in things worth solving.
+    </p>
+
+    <a class="contact-email" href="mailto:me@skymaze.ir">
+      me@skymaze.ir
+    </a>
+
+  </div>
+</section>
+
+
+<footer>
+  © 2026 SKy MaZe · Seyed Kazem Moosavi Zargar
+</footer>
+
+
+<script>
+  /* ---------- STARFIELD ---------- */
+
+  const canvas = document.getElementById("stars");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+
+  function resizeStars() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    stars = Array.from({
+      length: Math.floor((innerWidth * innerHeight) / 11000)
+    }, () => ({
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      r: Math.random() * 1 + .25,
+      a: Math.random() * .35 + .08,
+      speed: Math.random() * .006 + .002
+    }));
   }
-</style>
+
+  function drawStars(time = 0) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const s of stars) {
+      const alpha = s.a + Math.sin(time * s.speed) * .08;
+
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(160,190,255,${alpha})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(drawStars);
+  }
+
+  resizeStars();
+  drawStars();
+  addEventListener("resize", resizeStars);
+
+
+  /* ---------- SCROLL REVEAL ---------- */
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: .12 }
+  );
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+```

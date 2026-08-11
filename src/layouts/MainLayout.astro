@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "S.K. Moosavi — Engineer, Researcher, Creator",
+  description = "Personal website of S.K. Moosvi Zargar",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+
+    <meta name="description" content={description} />
+
+    <title>{title}</title>
+
+    <link rel="icon" href="/favicon.svg" />
+
+    <meta name="theme-color" content="#0a0a0a" />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
