@@ -1,0 +1,32 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Jet turbine spinning animation">
+  <defs>
+    <style>
+      @keyframes turbine-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      .fan { transform-origin: 100px 100px; animation: turbine-spin 2s linear infinite; }
+      @media (prefers-reduced-motion: reduce) { .fan { animation: none; } }
+    </style>
+  </defs>
+
+  <circle cx="100" cy="100" r="58" fill="none" stroke="#1a2332" stroke-width="0.6"/>
+  <circle cx="100" cy="100" r="46" fill="none" stroke="#0d131e" stroke-width="7"/>
+
+  <g class="fan">
+    <g id="blade">
+      <path d="M100,100 L100,58 C107,60 111,73 106,86 Z" fill="#7ca9ff" opacity="0.92"/>
+    </g>
+    <use xlink:href="#blade" href="#blade" transform="rotate(30 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(60 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(90 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(120 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(150 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(180 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(210 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(240 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(270 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(300 100 100)"/>
+    <use xlink:href="#blade" href="#blade" transform="rotate(330 100 100)"/>
+  </g>
+
+  <circle cx="100" cy="100" r="13" fill="#0d131e" stroke="#4f8cff" stroke-width="1.2"/>
+  <circle cx="100" cy="100" r="3" fill="#7ca9ff"/>
+</svg>

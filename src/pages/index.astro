@@ -1,4 +1,3 @@
-```astro
 ---
 const projects = [
   {
@@ -6,21 +5,24 @@ const projects = [
     type: "ROBOTICS · AI",
     title: "RL-Augmented MPC",
     subtitle: "Adaptive control for a lower-limb rehabilitation exoskeleton.",
-    tags: ["DDPG", "NMPC", "Reinforcement Learning", "Robotics"],
+    tags: ["DDPG", "EPFC", "Reinforcement Learning", "NMPC", "Robotics"],
+    motif: "/LLER.png",
   },
   {
     number: "02",
     type: "AEROSPACE",
     title: "Kosar 1.5 ADCS",
     subtitle: "Attitude determination and control for sun-pointing and inertial-pointing missions.",
-    tags: ["ADCS", "Simulink", "SIL", "Reaction Wheels"],
+    tags: ["ADCS", "Simulink", "SIL", "Reaction Wheels", "Magnetorquers"],
+    motif: "/satellite-orbit.svg",
   },
   {
     number: "03",
     type: "CONTROL · SOFTWARE",
     title: "Aircraft ECU Reverse Engineering",
     subtitle: "System-level reconstruction of control behavior and embedded numerical logic.",
-    tags: ["Embedded Control", "System Identification", "Fixed-Point"],
+    tags: ["FADEC", "Reverse Engineering", "CFM56", "Embedded Systems"],
+    motif: "/turbine-spin.svg",
   },
 ];
 ---
@@ -35,6 +37,12 @@ const projects = [
     name="description"
     content="Seyed Kazem Moosavi Zargar — Control Systems & Software Engineer working across intelligent control, aerospace and robotics."
   />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <style>
     :root {
@@ -124,16 +132,6 @@ const projects = [
 
     /* ---------- HERO ---------- */
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 130px 0 90px;
-      border-bottom: 1px solid var(--line);
-    }
-
     #stars {
       position: fixed;
       inset: 0;
@@ -141,110 +139,41 @@ const projects = [
       pointer-events: none;
     }
 
-    .hero-glow {
-      position: absolute;
-      width: 650px;
-      height: 650px;
-      right: -260px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: radial-gradient(circle, rgba(40,90,190,.20), transparent 68%);
-      pointer-events: none;
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 180px 24px 110px;
+      text-align: left;
     }
 
-    .maze {
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: .65;
-      pointer-events: none;
+    .hero-name {
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.045em;
+      color: var(--text);
+      margin: 0 0 18px;
     }
 
-    .maze path {
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 1.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 1600;
-      stroke-dashoffset: 1600;
-      animation: drawMaze 3s cubic-bezier(.65,0,.35,1) .3s forwards;
-    }
-
-    .maze .faint {
-      stroke: #27334a;
-      opacity: .65;
-    }
-
-    .maze circle {
-      fill: var(--accent);
-      opacity: 0;
-      animation: node .45s ease forwards;
-    }
-
-    .maze circle:nth-of-type(1) { animation-delay: 1s; }
-    .maze circle:nth-of-type(2) { animation-delay: 1.7s; }
-    .maze circle:nth-of-type(3) { animation-delay: 2.3s; }
-    .maze circle:nth-of-type(4) { animation-delay: 2.8s; }
-
-    @keyframes drawMaze {
-      to { stroke-dashoffset: 0; }
-    }
-
-    @keyframes node {
-      to { opacity: 1; }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-    }
-
-    .eyebrow {
-      color: var(--accent2);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 7vw, 82px);
-      line-height: .98;
-      letter-spacing: -.055em;
-      font-weight: 850;
-      max-width: 800px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-title {
-      margin-top: 28px;
-      max-width: 700px;
-      color: var(--muted);
+    .hero-role {
       font-size: 20px;
-      line-height: 1.55;
+      color: var(--muted);
+      margin: 0 0 14px;
     }
 
-    .hero-desc {
-      margin-top: 14px;
-      max-width: 630px;
-      color: var(--dim);
+    .hero-line {
       font-size: 15px;
+      line-height: 1.7;
+      color: var(--dim);
+      max-width: 52ch;
+      margin: 0 0 8px;
     }
 
-    .motto {
+    .hero-motto {
       display: inline-flex;
       align-items: center;
       gap: 13px;
-      margin-top: 30px;
+      margin-top: 26px;
       padding: 11px 17px;
       border: 1px solid rgba(79,140,255,.25);
       border-radius: 8px;
@@ -252,23 +181,32 @@ const projects = [
       font-size: 14px;
       font-style: italic;
       font-weight: 600;
+      color: var(--muted);
     }
 
-    .motto::before {
+    .hero-motto::before {
       content: "—";
       color: var(--accent);
       font-style: normal;
       font-weight: 800;
     }
 
-    .actions {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 34px;
     }
 
+    .hero-signature {
+      display: block;
+      width: 120px;
+      opacity: .5;
+      margin-top: 48px;
+    }
+
     .button {
+      display: inline-block;
       padding: 12px 20px;
       border-radius: 7px;
       border: 1px solid var(--line);
@@ -301,6 +239,15 @@ const projects = [
 
     .section-heading {
       margin-bottom: 54px;
+    }
+
+    .eyebrow {
+      color: var(--accent2);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     .section-heading h2 {
@@ -420,6 +367,28 @@ const projects = [
       max-width: 700px;
     }
 
+    .org-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    .org-logos img {
+      height: 26px;
+      width: auto;
+      filter: grayscale(1) brightness(1.7);
+      opacity: .55;
+      transition: opacity .2s ease;
+    }
+
+    .org-logos img:hover {
+      opacity: 1;
+    }
+
     /* ---------- PROJECTS ---------- */
 
     .project {
@@ -475,6 +444,13 @@ const projects = [
       border-radius: 20px;
       color: var(--dim);
       font-size: 11px;
+    }
+
+    .project-motif {
+      width: 100px;
+      height: 100px;
+      margin-top: 10px;
+      opacity: 1;
     }
 
     /* ---------- CONTROL VISUAL ---------- */
@@ -612,6 +588,21 @@ const projects = [
         var(--card);
     }
 
+    .telegram-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .channel-photo {
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
     .telegram-card h2 {
       font-size: 34px;
       letter-spacing: -.035em;
@@ -657,79 +648,70 @@ const projects = [
       to { transform: rotate(360deg); }
     }
 
-    /* =========================
-   Signature
-   ========================= */
+    /* ---------- SIGNATURE ---------- */
 
-.signature-section{
-  padding:120px 0 90px;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-}
+    .signature-section {
+      padding: 100px 0 60px;
+      text-align: center;
+    }
 
-.signature-wrap{
-  max-width:760px;
-  margin:0 auto;
-}
+    .signature-wrap {
+      max-width: 760px;
+    }
 
-.signature-label{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.16em;
-  color:var(--accent);
-  text-transform:uppercase;
-  margin-bottom:26px;
-}
+    .signature-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 26px;
+    }
 
-.signature-line{
-  width:64px;
-  height:1px;
-  background:var(--accent-line);
-  margin:0 auto 38px;
-}
+    .signature-line {
+      width: 64px;
+      height: 1px;
+      background: var(--line);
+      margin: 0 auto 38px;
+    }
 
-.signature-image{
-  width:min(420px, 78vw);
-  height:auto;
-  display:block;
-  margin:0 auto;
+    .signature-image {
+      width: min(360px, 70vw);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(18px) scale(.97);
+      transition:
+        opacity 1.1s cubic-bezier(.16,1,.3,1),
+        transform 1.2s cubic-bezier(.16,1,.3,1);
+    }
 
-  opacity:0;
-  transform:translateY(18px) scale(.97);
+    .signature-section.visible .signature-image {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 
-  filter:invert(1) brightness(.92);
+    .signature-name {
+      margin-top: 26px;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
 
-  transition:
-    opacity 1.2s cubic-bezier(.16,1,.3,1),
-    transform 1.4s cubic-bezier(.16,1,.3,1);
-}
+    .signature-motto {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--dim);
+      font-style: italic;
+    }
 
-.signature-section.is-visible .signature-image{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-
-.signature-name{
-  margin-top:30px;
-  font-size:14px;
-  color:var(--text-dim);
-  letter-spacing:.04em;
-}
-
-.signature-motto{
-  margin-top:10px;
-  font-size:13px;
-  color:var(--text-faint);
-  font-style:italic;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .signature-image{
-    opacity:1;
-    transform:none;
-  }
-}
+    @media (prefers-reduced-motion: reduce) {
+      .signature-image {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
     /* ---------- CONTACT ---------- */
 
@@ -785,11 +767,6 @@ const projects = [
         display: none;
       }
 
-      .maze {
-        opacity: .2;
-        right: -230px;
-      }
-
       .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -811,6 +788,11 @@ const projects = [
 
       .telegram-card {
         padding: 32px;
+      }
+
+      .telegram-content {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
@@ -836,12 +818,12 @@ const projects = [
 <canvas id="stars"></canvas>
 
 <nav>
-  <a class="logo" href="/">SKy <span>MaZe.</span></a>
+  <a class="logo" href="/">SKy <span>MaZe</span></a>
 
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
+    <a href="#projects">Selected Work</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </div>
@@ -851,71 +833,22 @@ const projects = [
 <!-- HERO -->
 
 <section class="hero">
+  <div class="eyebrow">SKy MaZe · Control · Software · Aerospace</div>
 
-  <div class="hero-glow"></div>
+  <h1 class="hero-name">Seyed Kazem<br />Moosavi Zargar</h1>
+  <p class="hero-role">Control Systems &amp; Software Engineer</p>
+  <p class="hero-line">
+    Building intelligent systems where mechanics, control,
+    software and learning meet.
+  </p>
 
-  <svg class="maze" viewBox="0 0 520 520">
-    <path class="faint"
-      d="M50 450 V340 H160 V240 H260 V130 H430 V70 H490" />
+  <div class="hero-motto">A man who never gives up.</div>
 
-    <path
-      d="
-      M50 450 V340 H160 V240 H260 V130 H430
-      M430 130 V70 H490
-      M260 240 H350 V190
-      M160 340 H220 V400 H330
-      " />
-
-    <circle cx="50" cy="450" r="5"/>
-    <circle cx="260" cy="240" r="5"/>
-    <circle cx="430" cy="130" r="5"/>
-    <circle cx="490" cy="70" r="5"/>
-  </svg>
-
-  <div class="container hero-content">
-
-    <div class="eyebrow">
-      SKy MaZe / CONTROL · SOFTWARE · AEROSPACE
-    </div>
-
-    <h1>
-      Seyed Kazem<br />
-      Moosavi <span>Zargar.</span>
-    </h1>
-
-    <p class="hero-title">
-      Control Systems & Software Engineer · M.Sc. Mechanical Engineering
-      · Reinforcement Learning & Aerospace Applications
-    </p>
-
-    <p class="hero-desc">
-      Building intelligent systems where mechanics, control, software and
-      learning meet.
-    </p>
-
-    <div class="motto">
-      A man who never gives up.
-    </div>
-
-    <div class="actions">
-      <!-- Replace these links -->
-      <a class="button primary" href="/CV.pdf" target="_blank">
-        Download CV
-      </a>
-
-      <a class="button" href="https://www.linkedin.com/in/kazemmoosavi/" target="_blank">
-        LinkedIn
-      </a>
-
-      <a class="button" href="https://github.com/skmz1380" target="_blank">
-        GitHub
-      </a>
-
-      <a class="button" href="mailto:me@skymaze.ir">
-        Contact
-      </a>
-    </div>
-
+  <div class="hero-actions">
+    <a href="/CV.pdf" class="button primary">Download CV</a>
+    <a href="https://www.linkedin.com/in/kazemmoosavi/" class="button">LinkedIn</a>
+    <a href="https://github.com/skmz1380" class="button">GitHub</a>
+    <a href="mailto:me@skymaze.ir" class="button">Contact</a>
   </div>
 </section>
 
@@ -934,13 +867,13 @@ const projects = [
 
       <div class="about-text reveal">
         I am a <strong>Control Systems & Software Engineer</strong> with a
-        background in Mechanical Engineering and a focus on dynamics,
-        intelligent control and computational methods.
+        background in Mechanical Engineering and a focus on dynamics and
+        intelligent control.
 
         <br /><br />
 
         My work sits at the intersection of
-        <strong>control theory, software, robotics, machine learning
+        <strong> control theory, software, robotics, machine learning
         and aerospace systems</strong>.
 
         <br /><br />
@@ -997,7 +930,7 @@ const projects = [
         <h3>Control Systems & Software Engineer</h3>
         <div class="company">MAPNA Group · AERO</div>
         <p>
-          Control systems and software engineering in an aerospace
+          Developing the engine control systems of aircrafts and software revere engineering in an aerospace
           engineering environment.
         </p>
       </div>
@@ -1033,6 +966,14 @@ const projects = [
       </div>
 
     </div>
+
+    <div class="org-logos reveal">
+      <img src="/logos/mapna.png" alt="MAPNA Group" />
+      <img src="/logos/spaceomid.svg" alt="SpaceOMID" />
+      <img src="/logos/sharif.png" alt="Sharif University of Technology" />
+      <img src="/logos/aut.png" alt="Amirkabir University of Technology" />
+    </div>
+
   </div>
 </section>
 
@@ -1073,6 +1014,10 @@ const projects = [
               <span class="chip">{tag}</span>
             ))}
           </div>
+
+          {project.motif && (
+            <img src={project.motif} alt="" class="project-motif" />
+          )}
         </div>
 
       </article>
@@ -1121,6 +1066,8 @@ const projects = [
         <div class="grade">
           GPA<br />
           <strong>18.14 / 20</strong>
+          <br /><br />
+          Admissioned as a high talent student without entry exam
         </div>
       </div>
 
@@ -1157,13 +1104,11 @@ const projects = [
       <span class="skill">Simulink</span>
       <span class="skill">Python</span>
       <span class="skill">C#</span>
-      <span class="skill">C / Embedded</span>
       <span class="skill">Git & GitHub</span>
       <span class="skill">Control Systems</span>
       <span class="skill">MPC / NMPC</span>
       <span class="skill">Reinforcement Learning</span>
       <span class="skill">Machine Learning</span>
-      <span class="skill">System Identification</span>
       <span class="skill">ADCS</span>
       <span class="skill">SIL Simulation</span>
       <span class="skill">PLC</span>
@@ -1188,24 +1133,26 @@ const projects = [
         <circle class="sat" cx="240" cy="135" r="4"/>
       </svg>
 
-      <div>
-        <div class="eyebrow">Follow the journey</div>
+      <div class="telegram-content">
+        <img src="/logos/channel-photo-400.png" alt="SKy aMaZe channel" class="channel-photo" />
 
-        <h2>SKy aMaZe</h2>
+        <div>
+          <div class="eyebrow">Follow the journey</div>
 
-        <p>
-          Notes, ideas, experiments and things worth building —
-          from control systems and aerospace to software and beyond.
-        </p>
+          <h2>SKy aMaZe</h2>
 
-        <!-- Replace this URL -->
-        <a
-          class="telegram-link"
-          href="[TELEGRAM_URL]"
-          target="_blank"
-        >
-          Enter the Maze →
-        </a>
+          <p>
+            Notes, ideas, experiences and things worth posting,
+            from sky above and sky you know to linux and beyond.
+          </p>
+
+          <a
+            class="telegram-link"
+            href="https://t.me/SKyaMaZe"
+            target="_blank"
+            rel="noopener">Get amazed →
+          </a>
+        </div>
       </div>
 
     </div>
@@ -1225,7 +1172,7 @@ const projects = [
 
     <p>
       Whether it is a control problem, an aerospace system,
-      a software project or simply an interesting idea —
+      a software project or simply an interesting idea,
       I am always interested in things worth solving.
     </p>
 
@@ -1237,8 +1184,27 @@ const projects = [
 </section>
 
 
+<!-- SIGNATURE -->
+
+<section class="signature-section reveal">
+  <div class="container signature-wrap">
+    <div class="signature-label">Signed</div>
+    <div class="signature-line"></div>
+
+    <img
+      src="/signature.png"
+      alt="Signature — Seyed Kazem Moosavi Zargar"
+      class="signature-image"
+    />
+
+    <div class="signature-name">Seyed Kazem Moosavi Zargar</div>
+    <div class="signature-motto">A man who never gives up.</div>
+  </div>
+</section>
+
+
 <footer>
-  © 2026 SKy MaZe · Seyed Kazem Moosavi Zargar
+  © 2026 SKy MaZe. All rights reserved. 
 </footer>
 
 
@@ -1272,7 +1238,8 @@ const projects = [
 
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(160,190,255,${alpha})`;
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+
       ctx.fill();
     }
 
@@ -1305,4 +1272,3 @@ const projects = [
 
 </body>
 </html>
-```
